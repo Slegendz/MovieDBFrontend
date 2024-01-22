@@ -1,10 +1,13 @@
 import { useState } from "react"
-import Review from '../review/review'
 import { Link} from 'react-router-dom'
 
 const CardInfo = ({ id, poster_path, title, overview, vote_average, imgUrl }) => {
-  const [showMore, setShowMore] = useState(false)
-  const img = poster_path.split('/').pop().split('.')[0];
+  const [showMore, setShowMore] = useState(false);
+  let img = "";
+
+  if(poster_path){
+    img = poster_path.split('/').pop().split('.')[0];
+  }
 
   return (
     <div className={`${showMore ? "bg-[#22314a] transition duration-700" : ''} flex relative flex-col items-center justify-center rounded-xl bg-[#151f30] p-4 text-center`}>
